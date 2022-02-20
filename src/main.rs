@@ -247,7 +247,8 @@ impl Tetrimino {
         if tmp_state >= self.states.len() {
             tmp_state = 0;
         }
-        let adjustments = [0, -1, 1, -2, 2];
+        //➔ Adjustment for adjusting x position of the tetrimino not fall out of grid boundary
+        let adjustments = [0, -1, 1, -2, 2, -3, 3];
         'adjustment_for: for adjustment in adjustments.into_iter(){
             if self.test_position(game_map, tmp_state, self.x + adjustment, self.y) {
                 self.current_state = tmp_state;
